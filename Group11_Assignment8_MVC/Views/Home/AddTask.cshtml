@@ -1,0 +1,74 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Input Task";
+}
+
+
+@model AddTaskResponse;
+
+<h2>
+    Fill in Task Info
+</h2>
+
+<form method="post">
+
+    <div class="row">
+        <div class="col-1">
+            <label asp-for="Task">Task:</label>
+        </div>
+        <div class="col">
+            <input type="text" asp-for="Task" value="" required />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-1">
+            <label asp-for="Due_Date">Due Date:</label>
+        </div>
+        <div class="col">
+            <input type="date" asp-for="Due_Date" value="" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-1">
+            <label asp-for="Quadrant">Quadrant:</label>
+        </div>
+        <div class="col">
+            <select asp-for="Quadrant" required>
+                <option value="">Select a Quadrant:</option>
+                <option value="1">1 (Urgent & Important)</option>
+                <option value="2">2 (Not Urgent & Important)</option>
+                <option value="3">3 (Urgent & Not Important)</option>
+                <option value="4">4 (Not Urgent & Not Important)</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-1">
+            <label asp-for="Category">Category:</label>
+        </div>
+        <div class="col">
+            <select type="text" asp-for="CategoryId">
+                <option>Select a Category:</option>
+                @foreach (Category cat in ViewBag.Categories)
+                {
+                    <option value="@cat.CategoryId">@cat.CategoryName</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-1">
+            <label asp-for="Completed">Completed: </label>
+        </div>
+        <div class="col">
+            <input type="checkbox" asp-for="Completed" />
+        </div>
+    </div>
+
+<div asp-validation-summary="All"></div>
