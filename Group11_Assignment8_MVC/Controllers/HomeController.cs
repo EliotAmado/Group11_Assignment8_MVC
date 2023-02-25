@@ -55,7 +55,7 @@ namespace Group11_Assignment8_MVC.Controllers
         {
             ViewBag.Tasks = daContext.Tasks.ToList(); //setting up variable to hold list of Tasks in the seed data 
 
-            return View("Quadrants");
+            return View();
         }
 
 
@@ -88,6 +88,7 @@ namespace Group11_Assignment8_MVC.Controllers
         [HttpGet]
         public IActionResult Quadrants()
         {
+            ViewBag.Tasks = daContext.Tasks.ToList();
             return View("Quadrants");
         }
 
