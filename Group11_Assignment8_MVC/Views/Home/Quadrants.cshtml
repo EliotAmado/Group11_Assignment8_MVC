@@ -6,19 +6,22 @@
     var Model = ViewBag.Tasks;
 }
 
+@*quadrants view that is separated into 4 quadrants and takes the users entered information and sorts it into the quadrants based on their selection*@
+@*uses bootstrap styling to make quadrants more defined*@
 <div class="container">
-    <div class="row">
+    <div class="row" style="border:solid">
         @*<h1>Important</h1>*@
-        <div class="col-6">
+        <div class="col-6" style="border:solid"> @*col-6 makes it half the page*@
             @*<h1>Urgent</h1>*@
             <ul>
+                @*creates a list of the items entered that belong in quadrant 1*@
                 @foreach (var item in Model)
                 {
                     if (item.Quadrant == 1)
                     {
                 <li>
                     @item.Task <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@item.TaskId">Edit</a>
-                    <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@item.TaskId">Delete</a>
+                    <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@item.TaskId">Delete</a> @*this allows users to edit and delete each item*@
                 </li>
                     }
                     else
@@ -28,17 +31,18 @@
                 }
             </ul>
             </div>
-        <div class="col-6">
+        <div class="col-6" style="border:solid">
             @*<h1>Not Urgent</h1>*@
             <ul>
+                @*creates a list of the items entered that belong in quadrant 2*@
                 @foreach (var item in Model)
                 {
                     if (item.Quadrant == 2)
                     {
                 <li>
                     @item.Task <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@item.TaskId">Edit</a>
-                                        <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@item.TaskId">Delete</a>
-                                    </li>
+                    <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@item.TaskId">Delete</a> @*this allows users to edit and delete each item*@
+                </li>
                     }
                     else
                     {
@@ -48,17 +52,18 @@
             </ul>
         </div>
         </div>
-        <div class="row">
-            <div class="col-6">
+        <div class="row" style="border:solid">
+            <div class="col-6" style="border:solid">
                 <ul>
+                    @*creates a list of the items entered that belong in quadrant 3*@
                     @foreach (var item in Model)
                     {
                         if (item.Quadrant == 3)
                         {
                     <li>
                         @item.Task <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@item.TaskId">Edit</a>
-                                                <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@item.TaskId">Delete</a>
-                                            </li>
+                        <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@item.TaskId">Delete</a>@*this allows users to edit and delete each item*@
+                    </li>
                         }
                         else
                         {
@@ -67,16 +72,17 @@
                     }
                 </ul>
             </div>
-            <div class="col-6">
+            <div class="col-6" style="border:solid">
                 <ul>
+                    @*creates a list of the items entered that belong in quadrant 4*@
                     @foreach (var item in Model)
                     {
                         if (item.Quadrant == 4)
                         {
-                    <li>
-                        @item.Task <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@item.TaskId">Edit</a>
-                                                <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@item.TaskId">Delete</a>
-                                            </li>
+                            <li>
+                                @item.Task <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@item.TaskId">Edit</a>
+                                <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@item.TaskId">Delete</a> @*this allows users to edit and delete each item*@
+                            </li>
                         }
                         else
                         {

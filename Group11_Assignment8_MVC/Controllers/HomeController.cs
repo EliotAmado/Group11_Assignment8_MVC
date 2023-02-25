@@ -85,6 +85,7 @@ namespace Group11_Assignment8_MVC.Controllers
             }
 
         }
+        //quadrants view
         [HttpGet]
         public IActionResult Quadrants()
         {
@@ -93,6 +94,7 @@ namespace Group11_Assignment8_MVC.Controllers
         }
 
 
+        //edit action
         [HttpGet]
         public IActionResult Edit(int TaskId)
         {
@@ -111,6 +113,7 @@ namespace Group11_Assignment8_MVC.Controllers
             return RedirectToAction("Quadrants");
         }
 
+        //Action for delete
         [HttpGet]
         public IActionResult Delete(int TaskId)
         {
