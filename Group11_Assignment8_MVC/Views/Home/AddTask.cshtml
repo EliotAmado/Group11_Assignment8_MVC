@@ -15,7 +15,7 @@
 <form method="post">
 
     <div class="row">
-        <div class="col-1">
+        <div class="col-2">
             <label asp-for="Task">Task:</label>
         </div>
         <div class="col">
@@ -24,7 +24,7 @@
     </div>
 
     <div class="row">
-        <div class="col-1">
+        <div class="col-2">
             <label asp-for="Due_Date">Due Date:</label>
         </div>
         <div class="col">
@@ -33,7 +33,7 @@
     </div>
 
     <div class="row">
-        <div class="col-1">
+        <div class="col-2">
             <label asp-for="Quadrant">Quadrant:</label>
         </div>
         <div class="col">
@@ -48,7 +48,7 @@
     </div>
 
     <div class="row">
-        <div class="col-1">
+        <div class="col-2">
             <label asp-for="Category">Category:</label>
         </div>
         <div class="col">
@@ -63,13 +63,16 @@
     </div>
 
     <div class="row">
-        <div class="col-1">
+        <div class="col-2">
             <label asp-for="Completed">Completed: </label>
         </div>
         <div class="col">
             <input type="checkbox" asp-for="Completed" />
         </div>
     </div>
+
+
+    <input type="submit" name="submit" value="Add Task" />
     </form>
 
 <div asp-validation-summary="All"></div>
