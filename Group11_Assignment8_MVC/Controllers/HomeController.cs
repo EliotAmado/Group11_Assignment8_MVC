@@ -83,6 +83,44 @@ namespace Group11_Assignment8_MVC.Controllers
             }
 
         }
+        [HttpGet]
+        public IActionResult Quadrants()
+        {
+            return View("Quadrants");
+        }
 
+
+        [HttpGet]
+        public IActionResult Edit(int TaskId)
+        {
+            ViewBag.Categories = daContext.Categories.ToList();
+
+            var task = daContext.Tasks.Single(x => x.TaskId == TaskId);
+
+            return View("AddTaskResponce", task);
+        }
+        [HttpPost]
+        public IActionResult Edit(AddTaskResponce Blah)
+        {
+            daContext.Update(Blah);
+            daContext.SaveChanges();
+
+            return RedirectToAction("Quadrants");
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int TaskId)
+        {
+            var task = daContext.Tasks.Single(x => x.TaskId == TaskId);
+            return View(task);
+        }
+        [HttpPost]
+        public IActionResult Delete(AddTaskResponce ar)
+        {
+            daContext.Tasks.Remove(ar);
+            daContext.SaveChanges();
+
+            return RedirectToAction("Quadrants");
+        }
     }
 }

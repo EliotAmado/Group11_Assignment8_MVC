@@ -1,0 +1,88 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Quadrants Page";
+}
+@model List<AddTaskResponce>;
+<div class="container">
+    <div class="row">
+        @*<h1>Important</h1>*@
+        <div class="col-6">
+            @*<h1>Urgent</h1>*@
+            <ul>
+                @foreach (var item in Model)
+                {
+                    if (item.Quadrant == 1)
+                    {
+                <li>
+                    @item.Task <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@item.TaskId">Edit</a>
+                    <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@item.TaskId">Delete</a>
+                </li>
+                    }
+                    else
+                    {
+
+                    }
+                }
+            </ul>
+            </div>
+        <div class="col-6">
+            @*<h1>Not Urgent</h1>*@
+            <ul>
+                @foreach (var item in Model)
+                {
+                    if (item.Quadrant == 2)
+                    {
+                <li>
+                    @item.Task <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@item.TaskId">Edit</a>
+                                        <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@item.TaskId">Delete</a>
+                                    </li>
+                    }
+                    else
+                    {
+
+                    }
+                }
+            </ul>
+        </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <ul>
+                    @foreach (var item in Model)
+                    {
+                        if (item.Quadrant == 3)
+                        {
+                    <li>
+                        @item.Task <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@item.TaskId">Edit</a>
+                                                <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@item.TaskId">Delete</a>
+                                            </li>
+                        }
+                        else
+                        {
+
+                        }
+                    }
+                </ul>
+            </div>
+            <div class="col-6">
+                <ul>
+                    @foreach (var item in Model)
+                    {
+                        if (item.Quadrant == 4)
+                        {
+                    <li>
+                        @item.Task <a asp-controller="Home" asp-action="Edit" asp-route-taskid="@item.TaskId">Edit</a>
+                                                <a asp-controller="Home" asp-action="Delete" asp-route-taskid="@item.TaskId">Delete</a>
+                                            </li>
+                        }
+                        else
+                        {
+
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
