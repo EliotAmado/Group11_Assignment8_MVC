@@ -53,7 +53,9 @@ namespace Group11_Assignment8_MVC.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            ViewBag.Tasks = daContext.Tasks.ToList(); //setting up variable to hold list of Tasks in the seed data 
+
+            return View("Quadrants");
         }
 
 
