@@ -74,6 +74,7 @@ namespace Group11_Assignment8_MVC.Controllers
         {
             if (ModelState.IsValid)
             {
+                ViewBag.Categories = daContext.Categories.ToList();
                 daContext.Add(ar);
                 daContext.SaveChanges();
                 return View("AddTask", ar);     //Will have all information applicationResponse (all user inputs that page)
@@ -102,7 +103,7 @@ namespace Group11_Assignment8_MVC.Controllers
 
             var task = daContext.Tasks.Single(x => x.TaskId == TaskId);
 
-            return View("AddTaskResponce", task);
+            return View("AddTask", task);
         }
         [HttpPost]
         public IActionResult Edit(AddTaskResponce Blah)
